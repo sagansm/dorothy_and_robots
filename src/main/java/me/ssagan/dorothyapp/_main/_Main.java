@@ -61,7 +61,7 @@ public class _Main {
         }
 
         //запишем третий файл
-        String punctuationString = StringUtil.getPunctuationMap(fairyTale);
+        String punctuationString = StringUtil.getPunctuationString(fairyTale);
         try {
             FileUtils.writeStringToFile(dir + "/" + fileName3, punctuationString);
         } catch (IOException e) {

@@ -54,20 +54,21 @@ public class StringUtil {
         return sb.toString();
     }
 
-    public static String getPunctuationMap(String str) {
+    public static String getPunctuationString(String str) {
         HashMap<Character, Integer> punctuationMap = new HashMap<>();
         for (int i = 0; i < str.length(); i++) {
             Character ch = str.charAt(i);
             if (ch.equals('.') || ch.equals(',') || ch.equals('?') || ch.equals('!') || ch.equals(':') || ch.equals(';')) {
                 Integer n = punctuationMap.get(str.charAt(i));
-                if (n == null) punctuationMap.put(str.charAt(i), 1);
-                else punctuationMap.put(str.charAt(i), ++n);
+                if (n == null) {punctuationMap.put(str.charAt(i), 1);}
+                else {punctuationMap.put(str.charAt(i), ++n);}
             }
         }
         StringBuilder sb = new StringBuilder();
         Iterator<Map.Entry<Character, Integer>> itr = punctuationMap.entrySet().iterator();
         while (itr.hasNext()) {
-            sb.append(itr.next().getKey() + " " + itr.next().getValue() + "\n");
+            Map.Entry<Character, Integer> item = itr.next();
+            sb.append(item.getKey() + " " + item.getValue() + "\n");
         }
         return sb.toString();
     }
